@@ -10,22 +10,22 @@
 }
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
-  
-/* Track */
+
+/* Track el fondo del recorrido de la barra*/
 ::-webkit-scrollbar-track {
   background: #0e0d0f;
 }
-   
-/* Handle */
+
+/* Handle barra de desplazamiento*/
 ::-webkit-scrollbar-thumb {
-    background: #9f3647;
+  background: #9f3647;
 }
-  
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background:#9f3647;
+  background: #9f3647;
 }
 * {
   margin: 0%;
@@ -101,16 +101,17 @@ a {
     url(src/img/banner-bg.jpg) no-repeat center;
   background-size: cover;
   flex-direction: column;
+  h1 {
+    font-size: 4rem;
+    width: 100%;
+    color: aliceblue;
+    position: relative;
+    text-align: center;
+    font-family: "catComic";
+    text-shadow: 0 0 0.8rem #bbb5b5b8;
+  }
 }
-.baner h1 {
-  font-size: 4rem;
-  width: 100%;
-  color: aliceblue;
-  position: relative;
-  text-align: center;
-  font-family: "catComic";
-  text-shadow: 0 0 0.8rem #bbb5b5b8;
-}
+
 .baner h3 {
   margin-top: 3%;
   font-size: 2rem;
@@ -123,6 +124,9 @@ a {
 }
 /* margenes laterales para todo el contenido */
 .espacios-secciones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 10% 15% 5%;
 }
 /* seccion de busqueda */
@@ -193,14 +197,14 @@ input[value="Buscar"] {
 
 /* grilla peliculas */
 .grid-movies {
-  /* margin-top: 10%; */
+  width: 100%;
   display: grid;
   padding: 100px 0;
-  max-height: calc((4 * 300px)+ 100px);
+  height: calc(calc(4 * 300px) + 9vh * 6)  ;
   grid-template: repeat(4, 300px) / repeat(4, 1fr);
   /* grid-template-columns:repeat(3,1fr); */
   justify-items: center;
-  row-gap: 5%;
+  row-gap: 9vh;
   overflow: hidden;
   /* anidaciones */
   /* fila 1 */
@@ -257,7 +261,7 @@ input[value="Buscar"] {
     scale: 1;
     position: relative;
     /* ----------------------- */
-    
+
     /* ----------------------- */
     &:hover {
       scale: 1.2;
@@ -292,20 +296,88 @@ input[value="Buscar"] {
     }
   }
 }
-.⚡bc67a1fd::after {
-  position: absolute;
-  pointer-events: none;
-  content: " ";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: radial-gradient(
-    ellipse 100% 100% at var(--x) var(--y),
-    var(--shade0-15),
-    hsla(var(--shade0-hsl) / 0)
-  );
-  opacity: 0;
-  transition: 0.2s opacity ease;
-  z-index: 10;
+/* caja-scroll-x*/
+.caja-scroll-x {
+  background-color: rgba(0 0 0 / 0.5);
+  display: flex;
+  width: 100%;
+  overflow: scroll;
+  /* margenes laterales para que las imagendes del principio y fin se puedan mostrar bien */
+  padding: 0 300px 5% 300px;
+
+  height: calc(300px + 150px);
+  /* para que el scroll se ajuste al elemento mas cercano */
+  scroll-snap-type: x mandatory;
+
+  div {
+    display: flex;
+    justify-content: center;
+    margin: 10% 0;
+/* para que el scroll centre al objeto mas cercano*/
+    scroll-snap-align: center;
+    z-index: 1;
+    transform: scale(0.8);
+   /* animacion para que las cartas se superpongan*/
+   view-timeline: --subjectReveal inline;
+   animation-timeline: --subjectReveal;
+   
+   animation-name: z-index-contenedor-img;
+   animation-fill-mode: both;
+
+    img {
+      
+      display: flex;
+      justify-content: center;
+      --rotacionY: 45deg;
+
+      /* para agregarle profundidad al elemento */
+      perspective: 40rem;
+      z-index: 1; 
+      /* border: solid 10px #a13232;  */
+      transform: translateX(-100%) translateZ(50px) rotateY(-45deg);
+      /* reflejo de las imagenes*/
+      -webkit-box-reflect: below 0.5em
+        linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25));
+      /* animacion que las cards giren*/
+      view-timeline: --subjectReveal inline;
+      animation-timeline: --subjectReveal;
+      animation-name: rotacion-img;
+      animation-fill-mode: both;
+    }
+    
+  }
+}
+hr{
+  margin: 5% 0;
+  width: 100%;
+}
+@keyframes rotacion-img {
+  
+  0% {
+    transform: translateX(-100%) rotateY(-45deg);
+  }
+  35% {
+    transform: translateX(0) rotateY(-45deg) scale(1.1);
+  }
+  50% {
+    transform: rotateY(0deg) translateZ(1em) scale(1.4);
+  }
+  65% {
+  
+    transform: translateX(0) rotateY(var(--rotacionY)) scale(1.1);
+  }
+  100% {
+    transform: translateX(100%) rotateY(var(--rotacionY)); 
+  }
+}
+@keyframes z-index-contenedor-img {
+  0% {
+    z-index: 1;
+}
+50% {
+    z-index: 100;
+}
+100% {
+    z-index: 1;
+}
 }
