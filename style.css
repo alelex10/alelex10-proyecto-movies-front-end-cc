@@ -5,6 +5,27 @@
     #000000b8 95%; 
     */
   --degradado: #0000009f, #000000ad;
+  --x: 0px;
+  --y: 0px;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0e0d0f;
+}
+   
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #9f3647;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background:#9f3647;
 }
 * {
   margin: 0%;
@@ -183,39 +204,37 @@ input[value="Buscar"] {
   overflow: hidden;
   /* anidaciones */
   /* fila 1 */
-  >:nth-child(n){
-    &:hover + div{
+  > :nth-child(n) {
+    &:hover + div {
       translate: 250px;
-      + div{
+      + div {
         translate: 150px;
-        + div{
+        + div {
           translate: 50px;
         }
       }
     }
   }
   /*columna 2 */
-  :nth-child(3n+2){
-    &:hover + div{
+  :nth-child(3n + 2) {
+    &:hover + div {
       translate: 250px;
-      + div{
+      + div {
         translate: 50px;
-        + div{
+        + div {
           translate: 0px;
         }
       }
-      
     }
   }
   /* columna 3 */
-  :nth-child(3n+3){
+  :nth-child(3n + 3) {
     &:hover {
-
-      + div{
+      + div {
         translate: 250px;
-        + div{
+        + div {
           translate: 0px;
-          + div{
+          + div {
             translate: 0px;
           }
         }
@@ -223,54 +242,70 @@ input[value="Buscar"] {
     }
   }
   /* columna 4 */
-  :nth-child(4n+4){
-    &:hover + div{
+  :nth-child(4n + 4) {
+    &:hover + div {
       translate: 0px;
-      + div{
+      + div {
         translate: 0px;
       }
     }
   }
-  
-  .movies-card{
+
+  .movies-card {
     box-shadow: 0 0 10px #9f3647;
     transition-duration: 400ms;
     scale: 1;
     position: relative;
-
-    &:hover{
+    /* ----------------------- */
+    
+    /* ----------------------- */
+    &:hover {
       scale: 1.2;
       box-shadow: 0 0 10px #ffffff;
-     
-      .detalles-movies{
+
+      .detalles-movies {
         left: 100%;
         box-shadow: 0 0 10px #ffffff;
       }
     }
-    
-  
-  .detalles-movies{
-    z-index: -1;
-    height:100%;
-    width: 100%;
-    background-color: #9f3647;
-    padding: 3%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    transition: 400ms;
-    h4{
-      text-align: center;
-      margin-bottom: 5%;
-      font-family: titulos;
-      font-size: 1.2rem;
-    }
-    .descripcion-movies{
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.9rem;
-    }
-  }
-  }
 
+    .detalles-movies {
+      z-index: -1;
+      height: 100%;
+      width: 100%;
+      background-color: #9f3647;
+      padding: 3%;
+      position: absolute;
+      left: 5%;
+      top: 5%;
+      transition: 400ms;
+      h4 {
+        text-align: center;
+        margin-bottom: 5%;
+        font-family: titulos;
+        font-size: 1.2rem;
+      }
+      .descripcion-movies {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.9rem;
+      }
+    }
+  }
 }
-
+.⚡bc67a1fd::after {
+  position: absolute;
+  pointer-events: none;
+  content: " ";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: radial-gradient(
+    ellipse 100% 100% at var(--x) var(--y),
+    var(--shade0-15),
+    hsla(var(--shade0-hsl) / 0)
+  );
+  opacity: 0;
+  transition: 0.2s opacity ease;
+  z-index: 10;
+}
