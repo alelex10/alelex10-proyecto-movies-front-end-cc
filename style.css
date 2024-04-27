@@ -303,7 +303,7 @@ input[value="Buscar"] {
   width: 100%;
   overflow: scroll;
   /* margenes laterales para que las imagendes del principio y fin se puedan mostrar bien */
-  padding: 0 300px 5% 300px;
+  padding: 0 350px 5% 400px;
 
   height: calc(300px + 150px);
   /* para que el scroll se ajuste al elemento mas cercano */
