@@ -46,7 +46,7 @@ body {
 /* Barra de navegacion */
 header {
   display: flex;
-  height: 10vh;
+  min-height: 10vh;
   background-color: #9f3647;
   width: 100%;
   align-items: center;
@@ -63,6 +63,7 @@ nav {
   justify-content: space-between;
   width: 100%;
   margin: 0 4%;
+  flex-wrap: wrap;
 }
 ul {
   list-style: none;
@@ -74,25 +75,28 @@ a {
   text-decoration: none;
 }
 .links-nav {
-  width: 50%;
+  width: 70%;
   display: flex;
   gap: 6%;
   flex-direction: row-reverse;
+  > li a {
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+    &:hover {
+      background-color: #9f3647 !important;
+      border-radius: 0.4rem;
+      padding: 0.5rem;
+      box-shadow: 0rem 0rem 0.5rem #1814198f;
+      transition: 400ms;
+    }
+  }
+  li:nth-child(1) a {
+    background-color: #1c1c1c;
+  }
 }
-.links-nav > li a {
-  border-radius: 0.4rem;
-  padding: 0.5rem;
-}
-.links-nav > li a:hover {
-  background-color: #9f3647 !important;
-  border-radius: 0.4rem;
-  padding: 0.5rem;
-  box-shadow: 0rem 0rem 0.5rem #1814198f;
-  transition: 400ms;
-}
-.links-nav li:nth-child(1) a {
-  background-color: #1c1c1c;
-}
+
+/* color iniciar secion */
+
 /* main */
 
 /* seccion baner */
@@ -116,7 +120,7 @@ a {
   }
 }
 
-.baner h3 {
+h3 {
   margin-top: 3%;
   font-size: 2rem;
   font-family: "catComic";
@@ -204,7 +208,7 @@ input[value="Buscar"] {
   width: 100%;
   display: grid;
   padding: 100px 0;
-  height: calc(calc(4 * 300px) + 9vh * 6)  ;
+  height: calc(calc(4 * 300px) + 9vh * 6);
   grid-template: repeat(4, 300px) / repeat(4, 1fr);
   /* grid-template-columns:repeat(3,1fr); */
   justify-items: center;
@@ -317,25 +321,24 @@ input[value="Buscar"] {
     display: flex;
     justify-content: center;
     margin: 10% 0;
-/* para que el scroll centre al objeto mas cercano*/
+    /* para que el scroll centre al objeto mas cercano*/
     scroll-snap-align: center;
     z-index: 1;
     transform: scale(0.8);
-   /* animacion para que las cartas se superpongan*/
-   view-timeline: --subjectReveal inline;
-   animation-timeline: --subjectReveal;
-   animation-name: z-index-contenedor-img;
-   animation-fill-mode: both;
+    /* animacion para que las cartas se superpongan*/
+    view-timeline: --subjectReveal inline;
+    animation-timeline: --subjectReveal;
+    animation-name: z-index-contenedor-img;
+    animation-fill-mode: both;
 
     img {
-      
       display: flex;
       justify-content: center;
       --rotacionY: 45deg;
 
       /* para agregarle profundidad al elemento */
       perspective: 40rem;
-      z-index: 1; 
+      z-index: 1;
       /* border: solid 10px #a13232;  */
       transform: translateX(-100%) translateZ(50px) rotateY(-45deg);
       /* reflejo de las imagenes*/
@@ -349,15 +352,13 @@ input[value="Buscar"] {
       /* ------- no me deja colocar todo en la propiedad "animacion" ---- */
       /* animation: rotacion-img 1s --subjectReveal both ; */
     }
-    
   }
 }
-hr{
+hr {
   margin: 5% 0;
   width: 100%;
 }
 @keyframes rotacion-img {
-  
   0% {
     transform: translateX(-100%) rotateY(-45deg);
   }
@@ -368,21 +369,36 @@ hr{
     transform: rotateY(0deg) translateZ(1em) scale(1.4);
   }
   65% {
-  
     transform: translateX(0) rotateY(var(--rotacionY)) scale(1.1);
   }
   100% {
-    transform: translateX(100%) rotateY(var(--rotacionY)); 
+    transform: translateX(100%) rotateY(var(--rotacionY));
   }
 }
 @keyframes z-index-contenedor-img {
   0% {
     z-index: 1;
-}
-50% {
+  }
+  50% {
     z-index: 100;
-}
-100% {
+  }
+  100% {
     z-index: 1;
+  }
 }
+@media screen and (max-width:1005px) {
+  header{
+    .links-nav {
+      justify-content: center;
+      width: 100%;
+      margin: 2% 0;
+      font-size: 1rem; 
+    }
+    .logo-nav{
+      font-size: 1rem; 
+      width: 100%;
+      text-align: center;
+      margin: 2% 0 0 0;
+    }
+  }
 }
