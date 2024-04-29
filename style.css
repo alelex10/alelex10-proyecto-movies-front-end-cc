@@ -50,6 +50,10 @@ header {
   background-color: #9f3647;
   width: 100%;
   align-items: center;
+  /* no fixed por que deja de ocupar el espasio que deberia(como posicion:absolite) */
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 nav {
   font-family: "catComic";
@@ -320,7 +324,6 @@ input[value="Buscar"] {
    /* animacion para que las cartas se superpongan*/
    view-timeline: --subjectReveal inline;
    animation-timeline: --subjectReveal;
-   
    animation-name: z-index-contenedor-img;
    animation-fill-mode: both;
 
@@ -343,6 +346,8 @@ input[value="Buscar"] {
       animation-timeline: --subjectReveal;
       animation-name: rotacion-img;
       animation-fill-mode: both;
+      /* ------- no me deja colocar todo en la propiedad "animacion" ---- */
+      /* animation: rotacion-img 1s --subjectReveal both ; */
     }
     
   }
