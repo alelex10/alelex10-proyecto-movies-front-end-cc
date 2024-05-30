@@ -7,6 +7,10 @@
   --degradado: #0000009f, #000000ad;
   --x: 0px;
   --y: 0px;
+  --colorRojo:#D62828;
+  --fondoPrincipal: #003049;
+  --colorLetra: #f8f8f8;
+  --colorAzul: #003049;
 }
 /* width */
 ::-webkit-scrollbar {
@@ -15,17 +19,17 @@
 
 /* Track el fondo del recorrido de la barra*/
 ::-webkit-scrollbar-track {
-  background: #0e0d0f;
+  background: var(--fondoPrincipal);
 }
 
 /* Handle barra de desplazamiento*/
 ::-webkit-scrollbar-thumb {
-  background: #9f3647;
+  background: var(--colorRojo);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #9f3647;
+  background:  var(--colorRojo);
 }
 * {
   margin: 0%;
@@ -34,20 +38,20 @@
 }
 @font-face {
   font-family: "catComic";
-  src: url(src/fonts/catComic.ttf);
+  src: url(../fonts/catComic.ttf);
 }
 @font-face {
   font-family: "titulos";
-  src: url(src/fonts/titulos.otf);
+  src: url(../fonts/titulos.otf);
 }
 body {
-  background-color: #0e0d0f;
+  background-color: var(--fondoPrincipal)
 }
 /* Barra de navegacion */
 header {
   display: flex;
   min-height: 10vh;
-  background-color: #9f3647;
+  background-color:  var(--colorAzul);
   width: 100%;
   align-items: center;
   /* no fixed por que deja de ocupar el espasio que deberia(como posicion:absolite) */
@@ -69,7 +73,7 @@ ul {
   list-style: none;
 }
 nav a {
-  color: aliceblue;
+  color: var(--colorLetra);
 }
 a {
   text-decoration: none;
@@ -83,7 +87,7 @@ a {
     border-radius: 0.4rem;
     padding: 0.5rem;
     &:hover {
-      background-color: #9f3647 !important;
+      background-color: var(--colorRojo) !important;
       border-radius: 0.4rem;
       padding: 0.5rem;
       box-shadow: 0rem 0rem 0.5rem #1814198f;
@@ -106,13 +110,13 @@ a {
   justify-content: center;
   height: 90vh;
   background: linear-gradient(60deg, var(--degradado)),
-    url(src/img/banner-bg.jpg) no-repeat center;
+    url(../img/banner-bg.jpg) no-repeat center;
   background-size: cover;
   flex-direction: column;
   h1 {
     font-size: 4rem;
     width: 100%;
-    color: aliceblue;
+    color: var(--colorLetra);
     position: relative;
     text-align: center;
     font-family: "catComic";
@@ -125,7 +129,7 @@ h3 {
   font-size: 2rem;
   font-family: "catComic";
   width: 100%;
-  color: aliceblue;
+  color: var(--colorLetra);
   position: relative;
   text-align: center;
   text-shadow: 0 0.5rem 1rem #000000b8, 0.01rem 0 5px #bbb5b5b8;
@@ -140,7 +144,7 @@ h3 {
 /* seccion de busqueda */
 .busqueda {
   display: flex;
-  color: aliceblue;
+  color: var(--colorLetra);
   flex-wrap: wrap;
   font-family: "titulos";
   /*   animation-timeline: scroll(root block); */
@@ -184,13 +188,13 @@ h2 {
 /* boton para buscar */
 input[value="Buscar"] {
   margin: 3rem 0 0 0.7rem;
-  background-color: #9f3647;
+  background-color: var(--colorRojo);
   display: inline;
   width: 10%;
   height: 3rem;
   border-radius: 3rem;
-  border: aliceblue 2px solid;
-  color: aliceblue;
+  border: var(--colorLetra) 2px solid;
+  color:var(--colorLetra);
   scale: 1.07;
   font-size: 1.2rem;
   font-weight: 700;
@@ -206,74 +210,27 @@ input[value="Buscar"] {
 /* grilla peliculas */
 .grid-movies {
   width: 100%;
-  display: grid;
-  padding: 100px 0;
-  height: calc(calc(4 * 300px) + 9vh * 6);
-  grid-template: repeat(4, 300px) / repeat(4, 1fr);
-  /* grid-template-columns:repeat(3,1fr); */
-  justify-items: center;
-  row-gap: 9vh;
-  overflow: hidden;
-  /* anidaciones */
-  /* fila 1 */
-  > :nth-child(n) {
-    &:hover + div {
-      translate: 250px;
-      + div {
-        translate: 150px;
-        + div {
-          translate: 50px;
-        }
-      }
-    }
-  }
-  /*columna 2 */
-  :nth-child(3n + 2) {
-    &:hover + div {
-      translate: 250px;
-      + div {
-        translate: 50px;
-        + div {
-          translate: 0px;
-        }
-      }
-    }
-  }
-  /* columna 3 */
-  :nth-child(3n + 3) {
-    &:hover {
-      + div {
-        translate: 250px;
-        + div {
-          translate: 0px;
-          + div {
-            translate: 0px;
-          }
-        }
-      }
-    }
-  }
-  /* columna 4 */
-  :nth-child(4n + 4) {
-    &:hover + div {
-      translate: 0px;
-      + div {
-        translate: 0px;
-      }
-    }
-  }
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 100px 0 0 0;
 
   .movies-card {
-    box-shadow: 0 0 10px #9f3647;
+    height: 270px;
     transition-duration: 400ms;
-    scale: 1;
     position: relative;
-    /* ----------------------- */
+    margin: 3%;
 
-    /* ----------------------- */
+    & img {
+      box-shadow: 0 0 10px var(--colorRojo);
+      height: 270px;
+    }
     &:hover {
       scale: 1.2;
-      box-shadow: 0 0 10px #ffffff;
+      margin: 0 250px 0 0;
+      img {
+        box-shadow: 0 0 10px #ffffff;
+      }
 
       .detalles-movies {
         left: 100%;
@@ -282,15 +239,16 @@ input[value="Buscar"] {
     }
 
     .detalles-movies {
+      padding: 5%;
       z-index: -1;
       height: 100%;
       width: 100%;
-      background-color: #9f3647;
-      padding: 3%;
+      background-color: #D62828;
       position: absolute;
-      left: 5%;
-      top: 5%;
+      left: 3%;
+      top: 3%;
       transition: 400ms;
+      /* align-content: center; */
       h4 {
         text-align: center;
         margin-bottom: 5%;
@@ -305,7 +263,8 @@ input[value="Buscar"] {
   }
 }
 /* caja-scroll-x*/
-.caja-scroll-x {
+.scroll-x-movies {
+  padding: 0 385px;
   background-color: #00000080;
   display: flex;
   white-space: nowrap;
@@ -319,7 +278,7 @@ input[value="Buscar"] {
     margin: 0 0 8% 0;
     /* para que el scroll centre al objeto mas cercano*/
     scroll-snap-align: center;
-    
+
     /* le agrega profundidad a las imagenes */
     perspective: 100em;
     /* animacion para que las cartas se superpongan*/
@@ -330,11 +289,9 @@ input[value="Buscar"] {
 
     img {
       margin-top: 20%;
-      height: 270px;
-      /* --rotacionY: 45deg; */
-      perspective: 45em;
+      width: 180px;
       /* para agregarle profundidad al elemento */
-       z-index: 1;
+      z-index: 1;
       /* perspective: 100px; // la perspectiva no va en el misco contenedor que se le aplique 3D, va en el elemento padre*/
       /* reflejo de las imagenes*/
       -webkit-box-reflect: below 0.5em
@@ -355,11 +312,10 @@ hr {
 }
 @keyframes rotacion-img {
   0% {
-    /* todo lo que desposicione la imagen corrompe la simetria */
+    /* todo lo que modifique su posicion la imagen corrompe la simetria */
     transform: /* translateX(-6vw) */ rotateY(-45deg);
   }
   20% {
-    /* todo lo que desposicione la imagen corrompe la simetria */
   }
   35% {
     transform: translateX(0) rotateY(-45deg) /* scale(1.1) */;
@@ -371,10 +327,9 @@ hr {
     transform: translateX(0) rotateY(45deg) /* scale(1.1) */;
   }
   80% {
-    /* todo lo que desposicione la imagen corrompe la simetria */
   }
   100% {
-    /* todo lo que desposicione la imagen corrompe la simetria */
+    /* todo lo que modifique su posicion la imagen corrompe la simetria */
     transform:  /* translateX(6vw) */ rotateY(45deg);
   }
 }
@@ -383,7 +338,6 @@ hr {
     z-index: 1;
   }
   50% {
-    margin: 0;
     z-index: 100;
   }
   100% {
@@ -406,3 +360,4 @@ hr {
     }
   }
 }
+
