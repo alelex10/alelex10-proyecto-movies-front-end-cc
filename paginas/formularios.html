@@ -1,37 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="../src/"></script>
+    <title>Iniciar Sesión | CAC-MOVIES</title>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"> -->
+    <link rel="stylesheet" href="../src/css/style.css">
+    <script src="https://kit.fontawesome.com/f7fb471b65.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
 </head>
-<body>
-    <header>
-        <nav>
-          <a class="logo-nav" href="index.html"><i class="fi fi-rr-film"></i> CAC-Movies</a>
-          <ul class="links-nav">
-            <li><a href="">Iniciar Secion</a></li>
-            <li><a href="">Registrarse</a></li>
-            <li><a href="">Tendencias</a></li>
-          </ul>
-        </nav>
-      </header>
-    <form>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Escriba su nombre">
-        
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" placeholder="example@example.com">
-        
-        <label for="contraseña">Contraseña:</label>
-        <input type="password" id="contraseña" name="contraseña" placeholder="*********">
-        
-        <label for="confirmar_contraseña">Confirmar contraseña:</label>
-        <input type="password" id="confirmar_contraseña" name="confirmar_contraseña" placeholder="*********">
-        
-        <input type="submit" value="Enviar">
-    </form>
-      
+<body class="bodyRegistrarse">
+  <header>
+    <nav>
+      <a class="logo-nav" href="../index.html"><i class="fi fi-rr-film"></i> CAC-Movies</a>
+      <ul class="links-nav">
+        <li><a href="paginas/formularios.html">Iniciar Secion</a></li>
+        <li><a href="">Registrarse</a></li>
+        <li><a href="">Tendencias</a></li>
+      </ul>
+    </nav>
+  </header>
+    <main id="main" class="main">
+        <section class="seccionIniciar">
+            <!--pongo get ya que en github pages da error el method post-->
+            <form class="formIniciarSesion mostrar">
+                <h2 class="tituloIniciarSesion">Iniciar Sesión</h2>
+                <div>
+                    <input autocomplete="email" type="email" placeholder="Email" id="email" name="email">
+                </div>
+                <div>
+                    <input autocomplete="current-password" type="password" placeholder="Contraseña" id="password" name="password">
+                </div>
+                <div>
+                    <input class="boton" type="submit" value="Iniciar Sesión">
+                </div>
+                <div>
+                    <input class="btnRegistrarse" type="button"  value="Registrarse">
+                </div>
+            </form>
+            <form class="formRegistrarse ocultar">
+                <h2 class="tituloRegistrarse">Registrarse</h2>
+                <div>
+                    <input autocomplete="name" type="text" placeholder="Nombre" id="nombre" name="nombre">
+                </div>
+                <div>
+                    <input autocomplete="email" type="email" placeholder="Email" id="new-email" name="email">
+                </div>
+                <div>
+                    <input autocomplete="new-password" type="password" placeholder="Contraseña" id="new-password" name="password">
+                </div>
+                <div>
+                    <input autocomplete="new-password" type="password" placeholder="Repetir Contraseña" id="confirm_password" name="confirm_password">
+                </div>
+                <div>
+                    <input class="boton" type="submit" value="Registrarse">
+                </div>
+                <div>
+                    <input class="btnIniciarSesion" type="button"  value="Iniciar sesion">
+                </div>
+            </form>
+        </section>
+    </main>
+    <!-- <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script> -->
+    <script src="../src/script/cambiarForm.js"> </script>
+    <script src="../src/script/validar.js"></script>
 </body>
 </html>

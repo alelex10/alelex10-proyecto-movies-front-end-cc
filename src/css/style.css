@@ -7,11 +7,15 @@
   --degradado: #0000009f, #000000ad;
   --x: 0px;
   --y: 0px;
-  --colorRojo:#D62828;
-  --fondoPrincipal: #003049;
-  --colorLetra: #f8f8f8;
-  --colorAzul: #003049;
+  --colorVioleta: #9b5de5;
+  --fondoPrincipal: #363636;
+  --colorLetra: #000;
+  --coloTitulo: #00bbf9;
+  --colorAmarillo: #fee440;
+  --colorCeleste: #00bbf9;
+  --colorPlaceholder: #999;
 }
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -24,34 +28,35 @@
 
 /* Handle barra de desplazamiento*/
 ::-webkit-scrollbar-thumb {
-  background: var(--colorRojo);
+  background: var(--colorVioleta);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background:  var(--colorRojo);
+  background: var(--colorVioleta);
 }
 * {
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
 }
+/* Fuentes */
 @font-face {
   font-family: "catComic";
   src: url(../fonts/catComic.ttf);
 }
 @font-face {
   font-family: "titulos";
-  src: url(../fonts/titulos.otf);
+  src: url(../fonts/Fifties\ Movies.ttf);
 }
 body {
-  background-color: var(--fondoPrincipal)
+  background-color: var(--fondoPrincipal);
 }
 /* Barra de navegacion */
 header {
   display: flex;
   min-height: 10vh;
-  background-color:  var(--colorAzul);
+  background-color: var(--colorAmarillo);
   width: 100%;
   align-items: center;
   /* no fixed por que deja de ocupar el espasio que deberia(como posicion:absolite) */
@@ -87,7 +92,7 @@ a {
     border-radius: 0.4rem;
     padding: 0.5rem;
     &:hover {
-      background-color: var(--colorRojo) !important;
+      background-color: var(--colorVioleta) !important;
       border-radius: 0.4rem;
       padding: 0.5rem;
       box-shadow: 0rem 0rem 0.5rem #1814198f;
@@ -95,7 +100,7 @@ a {
     }
   }
   li:nth-child(1) a {
-    background-color: #1c1c1c;
+    background-color: white;
   }
 }
 
@@ -116,7 +121,7 @@ a {
   h1 {
     font-size: 4rem;
     width: 100%;
-    color: var(--colorLetra);
+    color: var(--fondoPrincipal);
     position: relative;
     text-align: center;
     font-family: "catComic";
@@ -129,7 +134,7 @@ h3 {
   font-size: 2rem;
   font-family: "catComic";
   width: 100%;
-  color: var(--colorLetra);
+  color: var(--fondoPrincipal);
   position: relative;
   text-align: center;
   text-shadow: 0 0.5rem 1rem #000000b8, 0.01rem 0 5px #bbb5b5b8;
@@ -144,7 +149,7 @@ h3 {
 /* seccion de busqueda */
 .busqueda {
   display: flex;
-  color: var(--colorLetra);
+  color: var(--coloTitulo);
   flex-wrap: wrap;
   font-family: "titulos";
   /*   animation-timeline: scroll(root block); */
@@ -188,13 +193,13 @@ h2 {
 /* boton para buscar */
 input[value="Buscar"] {
   margin: 3rem 0 0 0.7rem;
-  background-color: var(--colorRojo);
+  background-color: var(--colorVioleta);
   display: inline;
   width: 10%;
   height: 3rem;
   border-radius: 3rem;
   border: var(--colorLetra) 2px solid;
-  color:var(--colorLetra);
+  color: var(--colorLetra);
   scale: 1.07;
   font-size: 1.2rem;
   font-weight: 700;
@@ -222,7 +227,7 @@ input[value="Buscar"] {
     margin: 3%;
 
     & img {
-      box-shadow: 0 0 10px var(--colorRojo);
+      box-shadow: 0 0 10px var(--colorVioleta);
       height: 270px;
     }
     &:hover {
@@ -243,7 +248,7 @@ input[value="Buscar"] {
       z-index: -1;
       height: 100%;
       width: 100%;
-      background-color: #D62828;
+      background-color: var(--colorVioleta);
       position: absolute;
       left: 3%;
       top: 3%;
@@ -360,4 +365,149 @@ hr {
     }
   }
 }
+/*seccion de registrarse.html*/
+.seccionIniciar {
+  background-color: var(--colorCeleste);
+  width: 25rem;
+  margin: 5% auto;
+  border-radius: 5px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  font-family: titulos;
+  font-size: 1.2rem;
 
+  .tituloRegistrarse,
+  .tituloIniciarSesion {
+    color: var(--colorLetra);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  /*seleccionar todos los input menos el checkbox*/
+  form {
+    width: 100%;
+    padding: 40px;
+    & > div {
+      margin-bottom: 10px;
+    }
+    input:not(.boton, .btnIniciarSesion, .btnRegistrarse),
+    select {
+      width: 100%;
+      height: 40px;
+      padding: 0px 20px;
+      font-size: 1.2rem;
+      border-radius: 20px;
+      border: 2px solid var(--colorAmarillo);
+      background-color: var(--colorVioleta);
+      outline: none;
+      color: var(--fondoPrincipal);
+      &::placeholder {
+        color: #ffffffc6;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+      & {
+        &:focus {
+          border: 2px solid var(--colorAmarillo);
+          box-shadow: 0px 0px 10px 2px var(--colorAmarillo);
+        }
+      }
+    }
+    .error input:not(.check, .boton),
+    .error select {
+      border: 1px solid #ff0000;
+    }
+    .error-text {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #ef0000;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .terminos {
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      .textoCheck {
+        margin-left: 10px;
+      }
+    }
+    .boton {
+      width: 87%;
+      box-sizing: content-box;
+      background-color: var(--colorAmarillo);
+      border: 0;
+      color: var(--colorLetra);
+      padding: 1rem 1rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin: 0%;
+      &:hover {
+        box-shadow: 0px 0px 10px var(--colorAmarillo);
+      }
+    }
+    .btnRegistrarse,
+    .btnIniciarSesion {
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      font-size: 1rem;
+      text-decoration: none;
+      color: var(--fondoPrincipal);
+      cursor: pointer;
+      font-weight: 400;
+      appearance: none;
+      border: none;
+      background: transparent;
+    }
+  }
+}
+.mostrar {
+  display: block;
+}
+.ocultar {
+  display: none;
+}
+
+/*media querys para mobile PAGINA registrarse*/
+@media screen and (max-width: 800px) {
+  .seccionIniciar {
+    width: 80%;
+    padding: 10px 10px;
+    .tituloRegistrarse {
+      font-size: 2rem;
+    }
+    form {
+      width: 100%;
+      text-align: center;
+
+      input:not(.check, .boton),
+      select {
+        width: 80%;
+        height: 35px;
+        font-size: 1rem;
+      }
+      .terminos {
+        width: 80%;
+        margin: 0 auto;
+        font-size: 0.7rem;
+      }
+      .boton {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 70%;
+        padding: 0.8rem 0.8rem;
+        font-size: 0.8rem;
+      }
+      .ayuda {
+        text-align: left;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
