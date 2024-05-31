@@ -15,22 +15,22 @@
     <nav>
       <a class="logo-nav" href="../index.html"><i class="fi fi-rr-film"></i> CAC-Movies</a>
       <ul class="links-nav">
-        <li><a href="paginas/formularios.html">Iniciar Secion</a></li>
+        <li><a href="formularios.html">Iniciar Secion</a></li>
         <li><a href="">Registrarse</a></li>
         <li><a href="">Tendencias</a></li>
       </ul>
     </nav>
   </header>
     <main id="main" class="main">
-        <section class="seccionIniciar">
+        <section class="forms">
             <!--pongo get ya que en github pages da error el method post-->
             <form class="formIniciarSesion mostrar">
                 <h2 class="tituloIniciarSesion">Iniciar Sesión</h2>
                 <div>
-                    <input autocomplete="email" type="email" placeholder="Email" id="email" name="email">
+                    <input class="email" autocomplete="email" type="email" placeholder="Email" name="email">
                 </div>
                 <div>
-                    <input autocomplete="current-password" type="password" placeholder="Contraseña" id="password" name="password">
+                    <input class="password" autocomplete="current-password" type="password" placeholder="Contraseña" id="password" name="password">
                 </div>
                 <div>
                     <input class="boton" type="submit" value="Iniciar Sesión">
@@ -42,16 +42,16 @@
             <form class="formRegistrarse ocultar">
                 <h2 class="tituloRegistrarse">Registrarse</h2>
                 <div>
-                    <input autocomplete="name" type="text" placeholder="Nombre" id="nombre" name="nombre">
+                    <input class="nombre" autocomplete="name" type="text" placeholder="Nombre" id="nombre" name="nombre">
                 </div>
                 <div>
-                    <input autocomplete="email" type="email" placeholder="Email" id="new-email" name="email">
+                    <input class="email" autocomplete="email" type="email" placeholder="Email" name="email">
                 </div>
                 <div>
-                    <input autocomplete="new-password" type="password" placeholder="Contraseña" id="new-password" name="password">
+                    <input class="new-password" autocomplete="new-password" type="password" placeholder="Contraseña" name="password">
                 </div>
                 <div>
-                    <input autocomplete="new-password" type="password" placeholder="Repetir Contraseña" id="confirm_password" name="confirm_password">
+                    <input class="confirm_password" autocomplete="new-password" type="password" placeholder="Repetir Contraseña" name="confirm_password">
                 </div>
                 <div>
                     <input class="boton" type="submit" value="Registrarse">
