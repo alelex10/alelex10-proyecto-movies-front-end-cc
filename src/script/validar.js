@@ -1,4 +1,4 @@
-let mensajesDeError=[]
+// export let mensajesDeError=[]
 // todo se ejecuta cuando el DOM se carga completamente
 document.addEventListener('DOMContentLoaded', () => {
     // selecciona el formulario del dom
@@ -6,11 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // -----------------------------------------------------------------
     // funcion mostrarError
-    // const input = document.querySelector('#password')
-    // const mensaje = "campo obligatorio"
     const mostrarError = (input, mensaje) => {
         // accedemos al div padre
-        if(!mensajesDeError.includes(mensaje)){
+        if(!mensajeRepetido(input, mensaje)){
         const divPadre = input.parentNode;
         // crea un div para mostrar el mensage
         const mensajeError=document.createElement('p');
@@ -21,10 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
         divPadre.appendChild(mensajeError);
         /* agrego el mensage de error a la lista de mensages 
         para que no se repita el mensage  */
-        mensajesDeError.push(mensaje)
+        // mensajesDeError.push(mensaje)
         }
     }
-    
+    const mensajeRepetido=(input, mensage)=>{
+        let repetido=false
+        const divPadre=input.parentNode;
+        divPadre.querySelectorAll('p').forEach(p=>{
+            repetido = p.innerText==mensage;
+        })
+        return repetido;
+    }
     // --------------------------------------------------------------
     //funcion eliminar mensaje de error
     const eliminarError = input => {
@@ -32,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const divPadre = input.parentNode;
         const pError= divPadre.querySelector('p');
         //elimino de la lista el mesage que se estaba mostrando
-        mensajesDeError.splice(mensajesDeError.indexOf(pError.innerText), 1)
+        // mensajesDeError.splice(mensajesDeError.indexOf(pError.innerText), 1)
         // elimino el nodo p que muestra el error
         pError.remove();
     }
